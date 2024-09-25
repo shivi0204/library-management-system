@@ -28,5 +28,12 @@
         </a>
         
       </li>
+         <li class="nav-item ">
+        <a class="nav-link " href="membership.php" style="color: white;">
+          <i class="fa fa-book"></i>
+          <span>Transactions </span>
+        </a>
+        
+      </li>
     
     </ul>
