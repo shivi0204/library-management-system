@@ -62,6 +62,19 @@ CREATE TABLE `tbl_location` (
 
 -- --------------------------------------------------------
 
+CREATE TABLE transactions (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    book_name VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    serial_no VARCHAR(50) NOT NULL,
+    issue_date DATE NOT NULL,
+    return_date DATE NOT NULL,
+    actual_return_date DATE,
+    fine_calculated INT(11) DEFAULT 0,
+    fine_paid TINYINT(1) DEFAULT 0,
+    remarks TEXT
+);
+
 --
 -- Table structure for table `tbl_return`
 --
