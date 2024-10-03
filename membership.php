@@ -1,10 +1,11 @@
 <?php
 session_start();
 include('connection.php');
+$name = $_SESSION['user_name'];
+$ids = $_SESSION['id'];
 $success = false; 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $address = $_POST['address'];
@@ -75,8 +76,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" rel="stylesheet" />
   <style>
   form {
-            width: 800px;
+    width: 800px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             margin-left: 150px;
+            margin-right: 170px;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -113,8 +117,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
          
   <formi class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-   <span >Welcome </span>
-  </formi>
+     <span >Welcome, <?php echo $name; ?></span>
+    </formi>
 
   <!-- Navbar -->
   <ul class="navbar-nav ml-auto ml-md-0">
@@ -181,3 +185,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 </body>
 </html>
+
