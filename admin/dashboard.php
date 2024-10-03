@@ -14,6 +14,11 @@ if(empty($id))
  $select_book = mysqli_query($conn,"select count(*) from tbl_book");
  $total_book = mysqli_fetch_row($select_book);
 
+ 
+ $select_membership = mysqli_query($conn,"select count(*) from members");
+ $total_membership = mysqli_fetch_row($select_membership);
+
+
  $select_avail_book = mysqli_query($conn,"select count(*) from tbl_book where availability=1");
  $avail_book = mysqli_fetch_row($select_avail_book);
 
@@ -145,6 +150,29 @@ if(empty($id))
       </div>
     </section>
   </div>
+  <div class="col-sm-4">
+  <section class="panel panel-featured-left panel-featured-primary">
+      <div class="panel-body user">
+        <div class="widget-summary">
+          <div class="widget-summary-col widget-summary-col-icon">
+           
+          </div>
+          <div class="widget-summary-col">
+            <div class="summary">
+              <h4 class="title">Total Membership</h4>
+              <div class="info">
+                <strong class="amount"><?php echo $total_membership[0]; ?></strong><br>                 
+              </div>
+            </div>
+            <div class="summary-footer">
+              <a class="text-muted text-uppercase"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
 </div>
 </div>
 </div>
