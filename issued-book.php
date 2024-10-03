@@ -41,7 +41,7 @@ if(empty($ids))
                                                 <th>Category</th>
                                                 <th>Issue Date</th>
                                                 <th>Due Date</th>
-                                                <th>Action</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -59,8 +59,7 @@ if(empty($ids))
                                                 <td><?php echo $row['issue_date']; ?></td>
                                                 <td><?php echo $row['due_date']; ?></td>
                                                 
-                                                <td><a href="book-return.php?id=<?php echo $row['book_id']; ?>"><button class="btn btn-success">Return</button></a>
-                                               </td>
+                                               
                                                
                                             </tr>
 										<?php $sn++; } ?>
@@ -75,4 +74,5 @@ if(empty($ids))
     <i class="fas fa-angle-up"></i>
 </a>
 <?php include('include/footer.php'); ?>
+ 
  
