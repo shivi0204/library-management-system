@@ -31,13 +31,14 @@ if(empty($id))
                         <th>S.No.</th>
                         <th>Book Name</th>
                         <th>User Name</th>
-                        <th>Quantity</th>
+                        <th>Issue Date</th>
+                        <th>Return Date</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
 										<?php 
-										$select_query = mysqli_query($conn, "select tbl_issue.status, tbl_issue.book_id, tbl_book.book_name, tbl_issue.id, tbl_issue.user_name, tbl_book.quantity from tbl_issue inner join tbl_book on tbl_book.id=tbl_issue.book_id");
+										$select_query = mysqli_query($conn, "select tbl_issue.status, tbl_issue.book_id, tbl_book.book_name,tbl_issue.issue_date,tbl_issue.due_date, tbl_issue.id, tbl_issue.user_name, tbl_book.quantity from tbl_issue inner join tbl_book on tbl_book.id=tbl_issue.book_id");
 										$sn = 1;
 										while($row = mysqli_fetch_array($select_query))
 										{ ?>
@@ -47,7 +48,8 @@ if(empty($id))
                     
                     <td><?php echo $row['user_name']; ?></td>
                     
-                    <td><?php echo $row['quantity']; ?></td>
+                    <td><?php echo $row['issue_date']; ?></td>
+                    <td><?php echo $row['due_date']; ?></td>
                     <?php
                     if(!empty($row['status']) && $row['status']==1)
                     {?>
