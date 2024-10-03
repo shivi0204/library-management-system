@@ -62,19 +62,6 @@ CREATE TABLE `tbl_location` (
 
 -- --------------------------------------------------------
 
-CREATE TABLE transactions (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    book_name VARCHAR(255) NOT NULL,
-    author VARCHAR(255) NOT NULL,
-    serial_no VARCHAR(50) NOT NULL,
-    issue_date DATE NOT NULL,
-    return_date DATE NOT NULL,
-    actual_return_date DATE,
-    fine_calculated INT(11) DEFAULT 0,
-    fine_paid TINYINT(1) DEFAULT 0,
-    remarks TEXT
-);
-
 --
 -- Table structure for table `tbl_return`
 --
@@ -112,7 +99,7 @@ INSERT INTO `tbl_users` (`id`, `user_name`, `emailid`, `password`, `role`, `stat
 (1, 'Admin', 'admin@library.com', '6b8d5de3b53751bac499eb1bef762a2a', 1, 1, '2023-05-27 13:29:44');
 
 CREATE TABLE members (
-    id INT(11) NOT NULL,
+   'id'INT(11) NOT NULL,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     phone VARCHAR(15) NOT NULL,
@@ -124,6 +111,18 @@ CREATE TABLE members (
 );
 --
 
+CREATE TABLE transactions (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    book_name VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    serial_no VARCHAR(50) NOT NULL,
+    issue_date DATE NOT NULL,
+    return_date DATE NOT NULL,
+    actual_return_date DATE,
+    fine_calculated INT(11) DEFAULT 0,
+    fine_paid TINYINT(1) DEFAULT 0,
+    remarks TEXT
+);
 
 
 -- Indexes for dumped tables
@@ -150,10 +149,7 @@ ALTER TABLE `tbl_issue`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_location`
---
-ALTER TABLE `tbl_location`
-  ADD PRIMARY KEY (`id`);
+
 
 --
 -- Indexes for table `tbl_return`
@@ -193,8 +189,7 @@ ALTER TABLE `tbl_issue`
 --
 -- AUTO_INCREMENT for table `tbl_location`
 --
-ALTER TABLE `tbl_location`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- AUTO_INCREMENT for table `tbl_return`
