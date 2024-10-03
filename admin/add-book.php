@@ -12,15 +12,11 @@ if(isset($_REQUEST['sbt-book-btn']))
    
 	$book_name = $_POST['book_name'];
     $category_name = $_POST['category_name'];
-    $isbn = $_POST['isbn'];
     $author_name = $_POST['author_name'];
-    $publisher_name = $_POST['publisher_name'];
-    $price = $_POST['price'];
     $quantity = $_POST['quantity'];
-    $location_name = $_POST['location_name'];
     $availability = $_POST['availability'];
 
-    $insert_book = mysqli_query($conn,"insert into tbl_book set book_name='$book_name', category='$category_name', isbnno='$isbn', author='$author_name', publisher='$publisher_name', price='$price', quantity='$quantity', place='$location_name',  availability='$availability'");
+    $insert_book = mysqli_query($conn,"insert into tbl_book set book_name='$book_name', category='$category_name', author='$author_name',quantity='$quantity', availability='$availability'");
 
     if($insert_book > 0)
     {
@@ -39,8 +35,6 @@ if(isset($_REQUEST['sbt-book-btn']))
     <div id="content-wrapper">
 
       <div class="container-fluid">
-
-        <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="#">Add Book</a>
@@ -76,12 +70,7 @@ if(isset($_REQUEST['sbt-book-btn']))
                                      </select>
                                 </div>
                                   </div>    
-                                   <div class="form-group row">
-                                      <label class="col-lg-4 col-form-label" for="price">ISBN <span class="text-danger">*</span></label>
-                                       <div class="col-lg-6">
-                                      <input type="text" name="isbn" id="isbn" class="form-control" placeholder="Enter ISBN" required>
-                                       </div>
-                                  </div>     
+                                       
                                                                             
                                    <div class="form-group row">
                                       <label class="col-lg-4 col-form-label" for="price">Author <span class="text-danger">*</span></label>
@@ -89,39 +78,14 @@ if(isset($_REQUEST['sbt-book-btn']))
                                       <input type="text" name="author_name" id="author_name" class="form-control" placeholder="Enter Author Name" required>
                                        </div>
                                   </div> 
-                                  <div class="form-group row">
-                                      <label class="col-lg-4 col-form-label" for="price">Publisher <span class="text-danger">*</span></label>
-                                       <div class="col-lg-6">
-                                      <input type="text" name="publisher_name" id="publisher_name" class="form-control" placeholder="Enter Publisher Name" required>
-                                       </div>
-                                  </div> 
-                                  <div class="form-group row">
-                                      <label class="col-lg-4 col-form-label" for="price">Price <span class="text-danger">*</span></label>
-                                       <div class="col-lg-6">
-                                      <input type="text" name="price" id="price" class="form-control" placeholder="Enter Price" required>
-                                       </div>
-                                  </div>
+                                 
+                                
                                   <div class="form-group row">
                                       <label class="col-lg-4 col-form-label" for="price">Quantity <span class="text-danger">*</span></label>
                                        <div class="col-lg-6">
                                       <input type="text" name="quantity" id="quantity" class="form-control" placeholder="Enter Quantity" required>
                                        </div>
                                   </div>                                         
-                                 <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="leave-type">Location <span class="text-danger">*</span>
-                                            </label>
-                                <div class="col-lg-6">
-                                    <select class="form-control" id="location_name" name="location_name" required>
-                                        <option value="">Select Location</option>
-                                        <?php 
-                                         $fetch_category = mysqli_query($conn, "select * from tbl_location where status=1");
-                                         while($row = mysqli_fetch_array($fetch_category)){
-                                        ?>
-                                        <option><?php echo $row['name']; ?></option>
-                                    <?php } ?>
-                                     </select>
-                                </div>
-                                  </div>
                            <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="status">Availability <span class="text-danger">*</span>
                                             </label>
