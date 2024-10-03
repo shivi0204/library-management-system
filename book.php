@@ -40,7 +40,6 @@ if(empty($ids))
                                                 <th>Name</th>
                                                 <th>Category</th>
                                                 <th>Author</th>
-                                                <th>ISBN</th>
                                                 <th>Availability</th>
                                                 <th>Action</th>
                                             </tr>
@@ -62,7 +61,6 @@ if(empty($ids))
                                                 
                                                 <td><?php echo $row['category']; ?></td>
                                                 <td><?php echo $row['author']; ?></td>
-                                                <td><?php echo $row['isbnno']; ?></td>
                                                 <?php if($row['availability']==1){
                                                   ?><td><span class="badge badge-success">Available</span></td>
                                         <?php } else { ?><td><span class="badge badge-danger">Not Available</span></td>
